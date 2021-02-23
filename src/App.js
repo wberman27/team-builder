@@ -4,21 +4,37 @@ import React, {useState} from 'react'
 
 function App() {
 
-  const initialTeamMembers = {
+
+  const teamList= [
+    {
+      name: 'Joe',
+      email: 'Joe@email.com',
+      role: 'RockStar',
+    },
+    {
+      name: 'Shmoe',
+      email: 'Shmoey123@email.com',
+      role: 'Surgeon',
+    }
+  ]
+
+  const initialFormValue = {
     name: '',
     email: '',
     role: '',
 
   }
 
-  const [teamMembers, setTeamMembers] = useState(initialTeamMembers);
+  const [teamMembers, setTeamMembers] = useState(teamList);
 
   return (
     <div className="App">
       <header className="App-header">
         <div className= 'container'>
           <ul>
-            Hi
+            {teamMembers.map(member =>{
+              return <li></li>
+            })}
           </ul>
         </div>
       </header>
