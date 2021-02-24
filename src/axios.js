@@ -4,10 +4,7 @@ import { v4 as uuid } from 'uuid'
 const initialMemberList = [
   {
     id: uuid(), // uuid is a lib to generate random, unique ids
-    name: 'Michael',
-    email: 'michael@michael.com',
-    role: 'Student',
-  },
+  }
 ]
 
 

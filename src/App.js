@@ -4,10 +4,10 @@ import React, {useState} from 'react'
 import Form from './Form'
 import axios from './axios'
 
-const teamList = [
+const teamList = [ //default state has these team members inside this array of objects
   {
     name: 'Joe',
-    email: 'Joe@email.com',
+    email: 'JoeS@email.com',
     role: 'RockStar',
   },
   {
@@ -17,7 +17,7 @@ const teamList = [
   }
 ]
 
-const initialFormValues = {
+const initialFormValues = { //form values are empty strings at default state
   name: '',
   email: '',
   role: '',
@@ -26,8 +26,8 @@ const initialFormValues = {
 
 export default function App() {
 
-  const [teamMembers, setTeamMembers] = useState(teamList);
-  const [formValues, setFormValues] = useState(initialFormValues);
+  const [teamMembers, setTeamMembers] = useState(teamList); //setting state for team list
+  const [formValues, setFormValues] = useState(initialFormValues); //setting state for form values
 
   const updateForm = (inputName, inputValue) => {
 
@@ -35,24 +35,24 @@ export default function App() {
   
   }
 
-  const submitForm = () => {
+  const submitForm = () => { //submit button functionality
 
       const newMember = {
-        name: formValues.name.trim(),
+        name: formValues.name.trim(), //trim gets rid of white space in string
         email: formValues.email.trim(),
         role: formValues.role
       }
-      if (!newMember.name || !newMember.email  || !newMember.role  ) {
+      if (!newMember.name || !newMember.email  || !newMember.role  ) { //if not a name email or role, stop function
         return;
       }
-      axios.post('teamapi.com', newMember)
+      axios.post('teamapi.com', newMember) //post newMember to fake api
       .then(res =>{
-        setTeamMembers([...teamMembers, res.data])
+        setTeamMembers([...teamMembers, res.data]) //set teamMembers state to the initial list plus data at fake api
       })
       .catch(err =>{
         console.log(err)
       })
-      setFormValues(initialFormValues)
+      setFormValues(initialFormValues) //resets the form values
   }
   return (
         <div className= 'container'>
@@ -65,7 +65,12 @@ export default function App() {
           />
           <ul>
             {teamMembers.map((member, idx) =>{
-              return <li key = {idx}>{`Name: ${member.name} Email: ${member.email} Role: ${member.role}`}</li>
+              return <div className = "list">
+                        <li key = {idx}>{`Name: ${member.name}`}                    
+                          <li>{`Email: ${member.email}`}</li>
+                          <li>{`Role: ${member.role}`}</li>
+                        </li>
+                      </div>
             })}
           </ul>
         </div>

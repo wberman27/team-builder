@@ -37,7 +37,7 @@ ul{
   align-items: start;
 }
 li{
-  padding:2%;
+  width:80%;
 }
 
 .originForm{
@@ -50,6 +50,27 @@ li{
   justify-content: center;
   align-items: center;
   
+}
+label{
+  color:paleturquoise;
+  text-shadow: 1px 1px 5px black;
+}
+input{
+  margin: 5%;
+  color: red;
+}
+select{
+  margin: 5%;
+  color: orange;
+}
+ul{
+  color:lime;
+  text-shadow: 1px 1px 5px black;
+  list-style-type: none;
+}
+.list{
+  width: 80%;
+  padding: 2%;
 }
 
 .App-link {

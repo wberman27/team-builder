@@ -3,16 +3,16 @@ import './App.css';
 
 export default function Form(props){
 
-    const { values, update, submit } = props;
+    const { values, update, submit } = props; //props from App
 
 
-    const onChange = e => {
+    const onChange = e => { //when value changes at target invoke update function
         const {name, value} = e.target
 
         update(name, value);
     }
 
-    const onSubmit = e => {
+    const onSubmit = e => { //prevent submit button from refreshing the page, invoke submit function
         e.preventDefault();
         submit()
     }
@@ -63,12 +63,12 @@ export default function Form(props){
             </label>
 
             <div className = 'submit'>
-                <button className = 'submitButton'>Submit</button>
+                <button className = 'submitButton' disabled={!values.name || !values.email || !values.role}>Submit</button>
             </div>
 
         </form>
         </div>
-//disabled={!values.name || !values.email || !values.role}>
+
     )
 
 
