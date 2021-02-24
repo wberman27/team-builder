@@ -2,6 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import React, {useState} from 'react'
 import Form from './Form'
+import axios from './axios'
 
 const teamList = [
   {
@@ -44,6 +45,13 @@ export default function App() {
       if (!newMember.name || !newMember.email  || !newMember.role  ) {
         return;
       }
+      axios.post('teamapi.com', newMember)
+      .then(res =>{
+        setTeamMembers([...teamMembers, res.data])
+      })
+      .catch(err =>{
+        console.log(err)
+      })
       setFormValues(initialFormValues)
   }
   return (
