@@ -31,13 +31,25 @@
 
 ul{
   display:flex;
-  width: 60%;
+  width: 50%;
   flex-flow: column wrap;
   justify-content: center;
   align-items: start;
 }
 li{
   padding:2%;
+}
+
+.originForm{
+  width:50%;
+}
+
+.formContainer{
+  display:flex;
+  flex-flow: wrap;
+  justify-content: center;
+  align-items: center;
+  
 }
 
 .App-link {
